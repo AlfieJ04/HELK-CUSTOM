@@ -40,14 +40,14 @@ The project is currently in an alpha stage, which means that the code and the fu
 
 ## WIKI
 
-* [Introduction](https://github.com/Cyb3rWard0g/HELK/wiki)
-* [Architecture Overview](https://github.com/Cyb3rWard0g/HELK/wiki/Architecture-Overview)
-  * [Kafka](https://github.com/Cyb3rWard0g/HELK/wiki/Kafka)
-  * [Logstash](https://github.com/Cyb3rWard0g/HELK/wiki/Logstash)
-  * [Elasticsearch](https://github.com/Cyb3rWard0g/HELK/wiki/Elasticsearch)
-  * [Kibana](https://github.com/Cyb3rWard0g/HELK/wiki/Kibana)
-  * [Spark](https://github.com/Cyb3rWard0g/HELK/wiki/Spark)
-* [Installation](https://github.com/Cyb3rWard0g/HELK/wiki/Installation)
+* [Introduction](https://github.com/AlfieJ04/HELK-CUSTOM/wiki)
+* [Architecture Overview](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Architecture-Overview)
+  * [Kafka](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Kafka)
+  * [Logstash](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Logstash)
+  * [Elasticsearch](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Elasticsearch)
+  * [Kibana](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Kibana)
+  * [Spark](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Spark)
+* [Installation](https://github.com/AlfieJ04/HELK-CUSTOM/wiki/Installation)
 
 ## (Docker) Accessing the HELK's Images
 
