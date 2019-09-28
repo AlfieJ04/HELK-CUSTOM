@@ -1,13 +1,13 @@
 alert:
 - debug
-#- email
-#email: 
-#      - "email@address.com"
-#smtp_host: "smtp.outlook.com" #for O365 email addresses
-#smtp_port: 587 #for O365 email addresses
-#smtp_ssl: true
-#from_addr: "email@address.com"
-#smtp_auth_file: "smtp_auth_file.yaml"
+- email
+email: 
+      - "support@infinitehosting.uk"
+smtp_host: "smtp.outlook.com" #for O365 email addresses
+smtp_port: 587 #for O365 email addresses
+smtp_ssl: true
+from_addr: "support@infinitehosting.uk"
+smtp_auth_file: "/etc/elastalert/smtp_auth_file.yaml"
 description: Detects potential suspicious powershell parameters
 filter:
 - query:
