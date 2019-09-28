@@ -1,5 +1,5 @@
 alert:
-- debug
+#- debug
 - email
 email: 
       - "support@infinitehosting.uk"
