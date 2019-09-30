@@ -14,6 +14,7 @@ ENV CURATOR_GID=934
 ENV CURATOR_UID=934
 ENV CURATOR_USER=curatoruser
 ENV CURATOR_HOME=/etc/curator
+ENV DEBIAN_FRONTEND noninteractive
 
 # *********** Installing Prerequisites ***************
 # -qq : No output except for errors
