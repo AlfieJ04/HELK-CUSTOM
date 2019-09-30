@@ -40,7 +40,7 @@ RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
   && python3 setup.py install
 
 # ********* Copy Curator files **************
-COPY scripts/* ${CURATOR_HOME}/
+#COPY scripts/* ${CURATOR_HOME}/
 COPY actions.yaml ${CURATOR_HOME}/
 COPY curator.yaml ${CURATOR_HOME}/
 

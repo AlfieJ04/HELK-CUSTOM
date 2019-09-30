@@ -192,6 +192,12 @@ services:
       ES_PORT: 9200
     networks:
       helk:
+  helk-curator:
+    image: alfiej04/helk-curator:0.0.1
+    container-name: helk-curator
+    restart: always
+    networks:
+      helk:
 
 networks:
   helk:
