@@ -1,20 +1,58 @@
-FROM alpine:3.6
+# HELK script: HELK Curator Dockerfile
+# HELK build Stage: Alpha
+# Author: Ashlee Jones (@AshleeJones04)
+# License: Apache 2.0
 
-RUN apk --no-cache add python py-setuptools py-pip gcc libffi py-cffi python-dev libffi-dev py-openssl musl-dev linux-headers openssl-dev libssl1.0 && \
-    pip install elasticsearch-curator==5.7.6 && \
-    pip install boto3==1.9.143 && \
-    pip install requests-aws4auth==0.9 && \
-    pip install cryptography==2.6.1 && \
-    apk del py-pip gcc python-dev libffi-dev musl-dev linux-headers openssl-dev && \
-    sed -i '/import sys/a urllib3.contrib.pyopenssl.inject_into_urllib3()' /usr/bin/curator && \
-    sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator && \
-    sed -i '/import sys/a import urllib3' /usr/bin/curator
+# References: 
+# https://github.com/elastic/curator
 
-USER nobody:nobody
+FROM ubuntu:18.04
+LABEL maintainer="Ashlee Jones @AshleeJones04"
+LABEL description="Dockerfile base for the HELK Curator."
+
+ENV CURATOR_GID=934
+ENV CURATOR_UID=934
+ENV CURATOR_USER=curatoruser
+ENV CURATOR_HOME=/etc/curator
+
+# *********** Installing Prerequisites ***************
+# -qq : No output except for errors
+RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
+  libmagic-dev \
+  build-essential \
+  python3-setuptools \
+  git \
+  python3-pip \
+  python3-dev \
+  python3-setuptools \
+  tzdata \
+  nano \
+  # ********* Clean ****************************
+  && apt-get -qy clean \
+  autoremove \
+  && rm -rf /var/lib/apt/lists/* \
+  # ********* Install Curator **************
+  && git clone https://github.com/elastic/curator.git ${CURATOR_HOME} \
+  && cd ${CURATOR_HOME} \
+  && sudo pip3 install --upgrade pip \
+  && pip3 install urllib3 \
+  && pip3 install -r requirements.txt \
+  && python3 setup.py install
 
 # ********* Copy Curator files **************
 #COPY scripts/* ${CURATOR_HOME}/
-#COPY ./actions.yaml /usr/bin/curator/
-#COPY ./curator.yaml /usr/bin/curator/
+COPY actions.yaml ${CURATOR_HOME}/
+COPY curator.yaml ${CURATOR_HOME}/
 
-ENTRYPOINT ["/usr/bin/curator"]
+
+  # ********* Adding Curator User *************
+  RUN groupadd -g ${CURATOR_GID} ${CURATOR_USER} \
+  && useradd -u ${CURATOR_UID} -g ${CURATOR_GID} -d ${CURATOR_HOME} --no-create-home -s /bin/bash ${CURATOR_USER} \
+  && chown -R ${CURATOR_USER}:${CURATOR_USER} ${CURATOR_HOME}
+
+USER curatoruser
+
+# *********** RUN Curator ***************
+WORKDIR ${CURATOR_HOME}
+#ENTRYPOINT ["./curator-entrypoint.sh"]
+CMD ["/bin/bash","-c","curator","--verbose"]
