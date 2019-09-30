@@ -6,14 +6,14 @@
 # References: 
 # https://github.com/elastic/curator
 
-FROM ubuntu:18.04
-LABEL maintainer="Ashlee Jones @AshleeJones04"
+FROM cyb3rward0g/helk-base:0.0.3
+LABEL maintainer="Roberto Rodriguez @Cyb3rWard0g"
 LABEL description="Dockerfile base for the HELK Curator."
 
 ENV CURATOR_GID=934
 ENV CURATOR_UID=934
 ENV CURATOR_USER=curatoruser
-ENV CURATOR_HOME=/etc/curator
+ENV CURATOR_HOME=/usr/share/curator
 ENV DEBIAN_FRONTEND noninteractive
 
 # *********** Installing Prerequisites ***************
@@ -33,27 +33,19 @@ RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
   autoremove \
   && rm -rf /var/lib/apt/lists/* \
   # ********* Install Curator **************
-  && git clone https://github.com/elastic/curator.git ${CURATOR_HOME} \
+  && bash -c 'mkdir -pv /usr/share/curator' \
   && cd ${CURATOR_HOME} \
-  && sudo pip3 install --upgrade pip \
+  && wget https://raw.githubusercontent.com/elastic/curator/master/requirements.txt \
+  && pip3 install --upgrade pip \
   && pip3 install urllib3 \
   && pip3 install -r requirements.txt \
-  && python3 setup.py install
+  && pip3 install elasticsearch-curator
 
 # ********* Copy Curator files **************
-#COPY scripts/* ${CURATOR_HOME}/
 COPY actions.yaml ${CURATOR_HOME}/
 COPY curator.yaml ${CURATOR_HOME}/
-
-
-  # ********* Adding Curator User *************
-  RUN groupadd -g ${CURATOR_GID} ${CURATOR_USER} \
-  && useradd -u ${CURATOR_UID} -g ${CURATOR_GID} -d ${CURATOR_HOME} --no-create-home -s /bin/bash ${CURATOR_USER} \
-  && chown -R ${CURATOR_USER}:${CURATOR_USER} ${CURATOR_HOME}
-
-USER curatoruser
 
 # *********** RUN Curator ***************
 WORKDIR ${CURATOR_HOME}
 #ENTRYPOINT ["./curator-entrypoint.sh"]
-CMD ["/bin/bash","-c","curator","--verbose"]
+CMD ["/usr/bin/python3","curator","--config","/usr/share/curator/curator.yaml","/usr/share/curator/actions.yaml"]
