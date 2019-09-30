@@ -89,9 +89,10 @@ root@ede2a2503030:/opt/helk/scripts#
 * [spujadas elk-docker](https://github.com/spujadas/elk-docker)
 * [deviantony docker-elk](https://github.com/deviantony/docker-elk)
 
-# Author
+# Authors
 
 * Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g) [@THE_HELK](https://twitter.com/THE_HELK)
+* Ashlee Jones [@AlfieJ04](https://twitter.com/AlfieJ04)
 
 # Contributors
 
