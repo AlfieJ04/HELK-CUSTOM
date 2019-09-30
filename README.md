@@ -89,13 +89,13 @@ root@ede2a2503030:/opt/helk/scripts#
 * [spujadas elk-docker](https://github.com/spujadas/elk-docker)
 * [deviantony docker-elk](https://github.com/deviantony/docker-elk)
 
-# Authors
+# Author
 
 * Roberto Rodriguez [@Cyb3rWard0g](https://twitter.com/Cyb3rWard0g) [@THE_HELK](https://twitter.com/THE_HELK)
-* Ashlee Jones [@AlfieJ04](https://twitter.com/AlfieJ04)
 
 # Contributors
 
+* Ashlee Jones [@AlfieJ44](https://twitter.com/AlfieJ44)
 * Jose Luis Rodriguez [@Cyb3rPandaH](https://twitter.com/Cyb3rPandaH)
 * Robby Winchester [@robwinchester3](https://twitter.com/robwinchester3)
 * Jared Atkinson [@jaredatkinson](https://twitter.com/jaredcatkinson)
