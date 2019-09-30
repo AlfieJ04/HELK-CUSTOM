@@ -14,7 +14,7 @@ USER nobody:nobody
 
 # ********* Copy Curator files **************
 #COPY scripts/* ${CURATOR_HOME}/
-COPY actions.yaml /usr/bin/curator
-COPY curator.yaml /usr/bin/curator
+COPY ~/HELK_CUSTOM/docker/helk-curator/actions.yaml /usr/bin/curator/
+COPY ~/HELK_CUSTOM/docker/helk-curator/curator.yaml /usr/bin/curator/
 
 ENTRYPOINT ["/usr/bin/curator"]
