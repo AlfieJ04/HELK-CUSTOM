@@ -9,7 +9,7 @@ actions:
   1:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for winlogbeat-
+      Delete indices older than 7 days (based on index name), for winlogbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -27,12 +27,12 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
   2:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for filebeat-
+      Delete indices older than 7 days (based on index name), for filebeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -55,7 +55,7 @@ actions:
   3:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for packetbeat-
+      Delete indices older than 7 days (based on index name), for packetbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -78,7 +78,7 @@ actions:
   4:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -96,13 +96,13 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
   5:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -120,13 +120,13 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
   6:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -144,13 +144,13 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
   7:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -168,13 +168,13 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
   8:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -192,13 +192,13 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
   9:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -216,14 +216,14 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
 
   10:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -241,13 +241,13 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
 
   11:
     action: delete_indices
     description: >-
-      Delete indices older than 60 days (based on index name), for metricbeat-
+      Delete indices older than 7 days (based on index name), for metricbeat-
       prefixed indices. Ignore the error if the filter does not result in an
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
@@ -265,5 +265,5 @@ actions:
       direction: older
       timestring: '%Y.%m.%d'
       unit: days
-      unit_count: 1
+      unit_count: 7
       exclude:
