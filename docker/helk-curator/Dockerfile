@@ -27,6 +27,7 @@ RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
   python3-dev \
   tzdata \
   nano \
+  cron \
   # ********* Clean ****************************
   && apt-get -qy clean \
   autoremove \
@@ -39,11 +40,17 @@ RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
   && pip3 install -r requirements.txt \
   && pip3 install elasticsearch-curator
 
-# ********* Copy Curator files **************
+# ********* Copy Curator files and setup cron **************
 COPY actions.yaml ${CURATOR_HOME}/
 COPY curator.yml ${CURATOR_HOME}/
+COPY helk-curator-cron /etc/cron.d/helk-curator-cron
+RUN chmod 0644 /etc/cron.d/helk-curator-cron
+RUN crontab /etc/cron.d/helk-curator-cron
+RUN touch /var/log/helk-curator-cron.log
+
 
 # *********** RUN Curator ***************
 WORKDIR ${CURATOR_HOME}
 #ENTRYPOINT ["./curator-entrypoint.sh"]
-CMD ["curator","--config","/usr/share/curator/curator.yml","/usr/share/curator/actions.yaml"]
+#CMD ["curator","--config","/usr/share/curator/curator.yml","/usr/share/curator/actions.yaml"]
+CMD cron && tail -f /var/log/helk-curator-cron.log

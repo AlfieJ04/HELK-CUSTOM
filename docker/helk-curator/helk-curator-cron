@@ -1,0 +1,1 @@
+0 0 * * * curator --config /usr/share/curator/curator.yml /usr/share/curator/actions.yaml >> /var/log/helk-curator-cron.log 2>&1
