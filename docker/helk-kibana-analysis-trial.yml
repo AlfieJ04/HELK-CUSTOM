@@ -145,7 +145,7 @@ services:
       helk:
   helk-curator:
     image: alfiej04/helk-curator:0.0.2
-    container-name: helk-curator
+    container_name: helk-curator
     restart: always
     depends_on:
       - helk-elasticsearch
