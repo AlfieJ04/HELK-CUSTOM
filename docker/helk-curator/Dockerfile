@@ -25,7 +25,6 @@ RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
   git \
   python3-pip \
   python3-dev \
-  python3-setuptools \
   tzdata \
   nano \
   # ********* Clean ****************************
@@ -37,13 +36,12 @@ RUN apt-get update -qq && apt-get install -qqy --no-install-recommends \
   && cd ${CURATOR_HOME} \
   && wget https://raw.githubusercontent.com/elastic/curator/master/requirements.txt \
   #&& pip3 install --upgrade pip \
-  && pip3 install urllib3 \
   && pip3 install -r requirements.txt \
   && pip3 install elasticsearch-curator
 
 # ********* Copy Curator files **************
 COPY actions.yaml ${CURATOR_HOME}/
-COPY curator.yaml ${CURATOR_HOME}/
+COPY curator.yml ${CURATOR_HOME}/
 
 # *********** RUN Curator ***************
 WORKDIR ${CURATOR_HOME}
