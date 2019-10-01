@@ -46,4 +46,4 @@ COPY curator.yml ${CURATOR_HOME}/
 # *********** RUN Curator ***************
 WORKDIR ${CURATOR_HOME}
 #ENTRYPOINT ["./curator-entrypoint.sh"]
-CMD ["/usr/bin/python3","curator","--config","/usr/share/curator/curator.yaml","/usr/share/curator/actions.yaml"]
+CMD ["curator","--config","/usr/share/curator/curator.yaml","/usr/share/curator/actions.yaml"]
