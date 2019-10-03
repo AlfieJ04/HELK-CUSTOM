@@ -165,7 +165,7 @@ services:
     networks:
       helk:
   helk-metricbeat:
-    image: store/elastic/metricbeat:7.1.0
+    image: alfiej04/helk-metricbeat:0.0.1
     container_name: helk-metricbeat
     user: root
     restart: always
