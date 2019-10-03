@@ -192,6 +192,26 @@ services:
       ES_PORT: 9200
     networks:
       helk:
+  helk-metricbeat:
+    image: store/elastic/metricbeat:7.1.0
+    container_name: helk-metricbeat
+    user: root
+    restart: always
+    environment:
+      ES_HOST: helk-elasticsearch
+      ES_PORT: 9200
+      KIBANA_HOST: helk-kibana
+      KIBANA_PORT: 5601
+    volumes:
+      - /proc:/hostfs/proc:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /:/hostfs:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - metricbeat:/usr/share/metricbeat/data
+    # disable strict permission checks
+    command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
+    networks:
+      helk:
 
 networks:
   helk:

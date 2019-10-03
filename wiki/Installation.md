@@ -23,7 +23,7 @@
 # HELK Download
 Run the following commands to clone the HELK repo via git.
 ```
-git clone https://github.com/AlfieJ04/HELK-CUSTOM.git
+git clone https://github.com/Cyb3rWard0g/HELK.git
 ```
 Change your current directory location to the new HELK directory, and run the **helk_install.sh** bash script as root.
 ```
