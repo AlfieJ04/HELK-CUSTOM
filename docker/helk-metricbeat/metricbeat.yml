@@ -69,19 +69,26 @@ processors:
 - add_host_metadata:
     netinfo.enabled: true
 
-#========================== Elasticsearch output ===============================
-output.elasticsearch:
-  hosts: ["localhost:9200"]
+#----------------------------- Kafka output --------------------------------
+output.kafka:
+  # initial brokers for reading cluster metadata
+  # Place your HELK IP(s) here (keep the port).
+  # If you only have one Kafka instance (default for HELK) then remove the 2nd IP that has port 9093
+  hosts: ["10.10.30.225:9092"]
+  topic: "winlogbeat"
+  ############################# HELK Optimizing Latency ######################
+  max_retries: 2
+  max_message_bytes: 1000000
 
 #============================== Dashboards =====================================
 setup.dashboards:
-  enabled: true
+  enabled: false
 
 #============================== Kibana =========================================
-setup.kibana:
-  host: "https://localhost:443"
-  username: helk
-  password: ${KIBANA_UI_PASSWORD}
+#setup.kibana:
+  #host: "https://localhost:443"
+  #username: helk
+  #password: ${KIBANA_UI_PASSWORD}
 
 #============================== Xpack Monitoring ===============================
 xpack.monitoring:
