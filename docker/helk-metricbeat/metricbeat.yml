@@ -75,9 +75,13 @@ output.kafka:
   # Place your HELK IP(s) here (keep the port).
   # If you only have one Kafka instance (default for HELK) then remove the 2nd IP that has port 9093
   hosts: ["localhost:9092"]
-  topic: "metricbeat"
-  ############################# HELK Optimizing Latency ######################
-  max_retries: 2
+  # message topic selection + partitioning
+  topic: '%{[fields.log_topic]}'
+  partition.round_robin:
+    reachable_only: false
+
+  required_acks: 1
+  compression: gzip
   max_message_bytes: 1000000
 
 #============================== Dashboards =====================================
