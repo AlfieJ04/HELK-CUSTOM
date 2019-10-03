@@ -83,14 +83,3 @@ output.kafka:
 #============================== Dashboards =====================================
 setup.dashboards:
   enabled: false
-
-#============================== Kibana =========================================
-#setup.kibana:
-  #host: "https://localhost:443"
-  #username: helk
-  #password: $KIBANA_UI_PASSWORD
-
-#============================== Xpack Monitoring ===============================
-xpack.monitoring:
-  enabled: true
-  elasticsearch:
