@@ -1,0 +1,20 @@
+{
+  "order": 40,
+  "index_patterns": [ "metricbeat-*" ],
+  "version": 2019100401,
+  "settings": {
+    "index": {
+      "mapping": {
+        "ignore_malformed": true,
+        "total_fields.limit": "5000",
+        "coerce": true
+      }
+    },
+    "refresh_interval": "30s",
+    "number_of_replicas": 0,
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "dynamic": "true"
+  }
+}
