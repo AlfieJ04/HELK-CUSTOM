@@ -69,20 +69,10 @@ processors:
 - add_host_metadata:
     netinfo.enabled: true
 
-#----------------------------- Kafka output --------------------------------
-output.kafka:
-  # initial brokers for reading cluster metadata
+#----------------------------- Elasticsearch output -----------------------------
+output.elasticsearch:
   # Place your HELK IP(s) here (keep the port).
-  # If you only have one Kafka instance (default for HELK) then remove the 2nd IP that has port 9093
-  hosts: ["localhost:9092"]
-  # message topic selection + partitioning
-  topic: '%{[fields.log_topic]}'
-  partition.round_robin:
-    reachable_only: false
-
-  required_acks: 1
-  compression: gzip
-  max_message_bytes: 1000000
+  hosts: ["localhost:9200"]
 
 #============================== Dashboards =====================================
 setup.dashboards:
