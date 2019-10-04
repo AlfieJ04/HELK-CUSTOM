@@ -63,7 +63,7 @@ metricbeat.modules:
   username: "user"
   password: "password"
   # If insecure is true, don't verify the server's certificate chain
-  insecure: false
+  insecure: true
   # Get custom fields when using virtualmachine metric set. Default false.
   # get_custom_fields: false
 
