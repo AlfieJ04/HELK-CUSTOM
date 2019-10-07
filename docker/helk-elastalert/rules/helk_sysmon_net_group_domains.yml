@@ -3,7 +3,7 @@ alert:
 - email
 email: 
       - "support@infinitehosting.uk"
-smtp_host: "smtp.outlook.com" #for O365 email addresses
+smtp_host: "smtp.office365.com" #for O365 email addresses
 smtp_port: 587 #for O365 email addresses
 smtp_ssl: true
 from_addr: "support@infinitehosting.uk"
