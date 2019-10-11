@@ -10,7 +10,7 @@
 
 # *********** Environment Variables***************
 if [[ -z "$ES_HOST" ]]; then
-  ES_HOST=helk-elasticsearch
+  ES_HOST=10.10.30.225
 fi
 echo "[HELK-ELASTALERT-DOCKER-INSTALLATION-INFO] Setting Elasticsearch server name to $ES_HOST"
 
