@@ -95,7 +95,7 @@ root@ede2a2503030:/opt/helk/scripts#
 
 # Contributors
 
-* Ashlee Jones [@AlfieJ04](https://twitter.com/AlfieJ04)
+* Ashlee Jones [@AlfieJ04](https://twitter.com/J04Alfie)
 * Jose Luis Rodriguez [@Cyb3rPandaH](https://twitter.com/Cyb3rPandaH)
 * Robby Winchester [@robwinchester3](https://twitter.com/robwinchester3)
 * Jared Atkinson [@jaredatkinson](https://twitter.com/jaredcatkinson)
